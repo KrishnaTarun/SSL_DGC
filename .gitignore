@@ -1,6 +1,6 @@
-./bash_files/pretrain/cifar100/cifar100/*
-./bash_files/pretrain/cifar100/datasets/*
-./bash_files/pretrain/cifar100/wandb/*
-./bash_files/pretrain/imagenet100/datasets/*
-./bash_files/pretrain/imagenet100/imagenet100/*
-./bash_files/pretrain/imagenet100/wandb/*
+bash_files/pretrain/cifar100/cifar100/
+bash_files/pretrain/cifar100/datasets/
+bash_files/pretrain/cifar100/wandb/
+bash_files/pretrain/imagenet100/datasets/
+bash_files/pretrain/imagenet100/imagenet100/
+bash_files/pretrain/imagenet100/wandb/
