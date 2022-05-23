@@ -139,7 +139,7 @@ def main():
             name=args.dataset+ "_" + args.name + "_"+ str(args.den_target),
             # name=args.name + "_"+ str(args.width),
             project=args.project,
-            entity="tkrishna",
+            entity=args.entity,
             offline=args.offline,
         )
         wandb_logger.watch(model, log="gradients", log_freq=100)

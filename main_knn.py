@@ -72,19 +72,32 @@ def extract_features(loader: DataLoader, model: nn.Module, flag: Boolean) -> Tup
             block_flops.update(flops_conv, batch_size)
             # pass
         backbone_features.append(outs["feats"].detach())
-        proj_features.append(outs["z"])
+        # proj_features.append(outs["z"])
         labels.append(lab)
     model.train()
     backbone_features = torch.cat(backbone_features)
-    proj_features = torch.cat(proj_features)
+    # proj_features = torch.cat(proj_features)
     labels = torch.cat(labels)
     if flag:
         model.backbone.record_flops(block_flops.avg, flops_mask, flops_ori, flops_conv1, flops_fc)
         flops = (block_flops.avg[-1]+flops_mask[-1]+flops_conv1.mean()+flops_fc.mean())/1024
         flops_per = (block_flops.avg[-1]+flops_mask[-1]+flops_conv1.mean()+flops_fc.mean())/(
                          flops_ori[-1]+flops_conv1.mean()+flops_fc.mean())*100
-        print(flops.item(), flops_per.item())
+        flops_real = block_flops.avg[-1]+flops_mask[-1]+flops_conv1.mean()+flops_fc.mean()
+        original  = flops_ori[-1]+flops_conv1.mean()+flops_fc.mean()
+        reduction = 1 - (flops_per)/100 
+        # print(reduction)
+        print("flops_real: {}, flops_per: {}, flops_reduction: {}, flops_orig: {}".format(flops_real.item(), flops_per.item(), reduction.item(), original.item()))
+        
+        log_flops = {
+            "flops": flops.item(),
+            "flops_per": flops_per.item(),
+            "flops_reduction": reduction.item(),
+            "flops_orig": original.item()
+        }
         # pass
+        # exit()
+        return backbone_features, proj_features, labels, log_flops
     return backbone_features, proj_features, labels
 
 
@@ -225,16 +238,16 @@ def main():
         
 
         # extract train features
-        train_features_bb, train_features_proj, train_targets = extract_features(train_loader, model, flag=False)
-        train_features = {"backbone": train_features_bb, "projector": train_features_proj}
+        train_features_bb, _, train_targets = extract_features(train_loader, model, flag=False)
+        train_features = {"backbone": train_features_bb, "projector": _}
 
-        del train_features_proj
+        # del train_features_proj
 
         # extract test features
-        test_features_bb, test_features_proj, test_targets = extract_features(val_loader, model, flag=True)
-        test_features = {"backbone": test_features_bb, "projector": test_features_proj}
+        test_features_bb, _, test_targets, flops = extract_features(val_loader, model, flag=True)
+        test_features = {"backbone": test_features_bb, "projector": _}
         
-        del test_features_proj
+        # del test_features_proj
         #NOTE running single iteration saving result in json might change for all combinations
         # run k-nn for all possible combinations of parameters
         for feat_type in args.feature_type:
@@ -256,6 +269,7 @@ def main():
                         )
                         print(f"Result: acc@1={acc1}, acc@5={acc5}")
                     knn[str(method_args["den_target"])][eph]=acc1
+                    knn[str(method_args["den_target"])]["flops"] = flops
                     # print(knn)
 
         del model
