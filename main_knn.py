@@ -90,7 +90,7 @@ def extract_features(loader: DataLoader, model: nn.Module, flag: Boolean) -> Tup
         print("flops_real: {}, flops_per: {}, flops_reduction: {}, flops_orig: {}".format(flops_real.item(), flops_per.item(), reduction.item(), original.item()))
         
         log_flops = {
-            "flops": flops.item(),
+            "flops": flops_real.item(),
             "flops_per": flops_per.item(),
             "flops_reduction": reduction.item(),
             "flops_orig": original.item()
