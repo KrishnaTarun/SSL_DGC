@@ -16,11 +16,13 @@ The main requirements of this work are:
 We recommand using conda env to setup the experimental environments.
 
 # Install other requirements
+```shell script
 pip install -r requirements.txt
-```
+
 # Clone repo
 git clone https://github.com/KrishnaTarun/SSL_DGC.git
 cd ./SSL_DGC
+```
 
 ### Pre-Training
 
@@ -28,4 +30,6 @@ cd ./SSL_DGC
 
 # CIFAR-100
 bash bash_files/pretrain/imagent100/simsiam.sh
+
+```
 
