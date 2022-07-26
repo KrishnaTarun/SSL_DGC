@@ -12,3 +12,16 @@ The main requirements of this work are:
 - PyTorch == 1.10.0  
 - Torchvision == 	0.11.1
 - CUDA 10.2
+
+We recommand using conda env to setup the experimental environments.
+
+# Install other requirements
+pip install -r requirements.txt
+```
+# Clone repo
+git clone https://github.com/anonymous-9800/DGNet.git ./DGNet
+cd ./DGNet
+
+### Pre-Training
+```shell script
+# CIFAR-100
