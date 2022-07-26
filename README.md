@@ -28,8 +28,14 @@ cd ./SSL_DGC
 
 ```shell script
 
-# CIFAR-100
+# ImageNet-100
 bash bash_files/pretrain/imagent100/simsiam.sh
 
 ```
+
+### KNN - Evaluation 
+```shell script
+bash bash_files/pretrain/imagent100/simsiam.sh
+```
+
 
