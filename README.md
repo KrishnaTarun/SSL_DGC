@@ -41,5 +41,6 @@ bash bash_files/pretrain/cifar100/simsiam.sh
 # ImageNet-100
 bash bash_files/knn/imagent100/knn.sh
 ```
+###TODO citation bibtex
 
 
