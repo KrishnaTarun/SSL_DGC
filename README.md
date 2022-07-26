@@ -1,6 +1,6 @@
 # Dynamic Channel Selection in Self-Supervised Learning
 
-This is an official Pytorch based implementation of [Dynamic Channel Selection in Self-Supervised Learning](https://arxiv.org/abs/2207.12065) accepted in [IMVIP 2022](https://imvipconference.github.io). Code from channel gating is derived from [https://imvipconference.github.io/](https://github.com/lfr-0531/DGNet) while we train the self-supervised approach based on [Solo-learn library](https://github.com/vturrisi/solo-learn). We use [SimSiam](https://arxiv.org/abs/2011.10566) as our self-supervised objective.
+This is an official Pytorch based implementation of [Dynamic Channel Selection in Self-Supervised Learning](https://arxiv.org/abs/2207.12065) accepted in [IMVIP 2022](https://imvipconference.github.io). Code from channel gating is derived from [DGNet](https://github.com/lfr-0531/DGNet) while we train the self-supervised approach based on [Solo-learn library](https://github.com/vturrisi/solo-learn). We use [SimSiam](https://arxiv.org/abs/2011.10566) as our self-supervised objective.
 
 ## Getting Started 
 
