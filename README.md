@@ -38,6 +38,7 @@ bash bash_files/pretrain/cifar100/simsiam.sh
 
 ### KNN - Evaluation 
 ```shell script
+# ImageNet-100
 bash bash_files/knn/imagent100/knn.sh
 ```
 
