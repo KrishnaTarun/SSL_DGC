@@ -19,9 +19,13 @@ We recommand using conda env to setup the experimental environments.
 pip install -r requirements.txt
 ```
 # Clone repo
-git clone https://github.com/anonymous-9800/DGNet.git ./DGNet
-cd ./DGNet
+git clone https://github.com/KrishnaTarun/SSL_DGC.git
+cd ./SSL_DGC
 
 ### Pre-Training
+
 ```shell script
+
 # CIFAR-100
+bash bash_files/pretrain/imagent100/simsiam.sh
+
