@@ -41,6 +41,13 @@ bash bash_files/pretrain/cifar100/simsiam.sh
 # ImageNet-100
 bash bash_files/knn/imagent100/knn.sh
 ```
-###TODO citation bibtex
+ #### Please consider citing the following paper if you find this work useful for your research.
+ @inproceedings{Krishna2022DynamicCS,
+  title={Dynamic Channel Selection in Self-Supervised Learning},
+  author={Tarun Krishna and Ayush Rai and Yasser Abdelaziz Dahou Djilali and Alan F. Smeaton and Kevin McGuinness and Noel E. O'Connor},
+  year={2022}
+}
+ 
+   
 
 
