@@ -47,7 +47,7 @@ bash bash_files/knn/imagent100/knn.sh
   title={Dynamic Channel Selection in Self-Supervised Learning},
   author={Tarun Krishna and Ayush Rai and Yasser Abdelaziz Dahou Djilali and Alan F. Smeaton and Kevin McGuinness and Noel E. O'Connor},
   year={2022}
-}
+  } 
  
    
 
